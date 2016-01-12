@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>How to lose clients and annoy coworkers</title>
+	<link rel="stylesheet" href="styles/fonts.css">
+	<link rel="stylesheet" href="styles/animations.css">
+	<link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="stretch no-margin-padding loading">
+	<div id="container" class="full-height-width flex-centre">
+		<!--<div class="circle absolute left blend-bg animation-rtl"></div>-->
+			
+		<div id="main" class="image-cover stretch layer-2 flex-centre">
+			<div id="screen" class="animation-fold-up animation-fold-down flex-centre layer-2">
+				<div class="layer-1 block">
+					<span class="pole solid rotatepole-1"></span>
+					<span class="pole">
+						<span class="pole pole-three-quarter solid rotatepole-2"></span>
+					</span>
+					<span class="pole solid rotatepole-3"></span>
+					<span class="pole flex-column">
+						<span class="pole pole-half solid rotatepole-1"></span>
+						<span class="pole pole-half solid rotatepole-2"></span>
+					</span>
+				</div>
+			</div>
+			
+			<div class="content layer-1">
+				<p id="offense" class="title loading-hidden permanent-marker"></p>
+				<h1 class="sub-title merriweather-regular">How to lose clients and annoy coworkers</h1>
+				
+				<a id="refresh" class="layer-3 btn btn-more permanent-marker">More</a>
+				<a id="make-suggestion" class="btn btn-suggestion">Make a suggestion</a>
+			</div>
+			
+			<div id="form-wrapper" class="pull-up pull-down layer-4">
+				<form enctype="application/json" action="https://sheetsu.com/apis/2e55358e" method="post">
+					<input name="description" type="text" value="" required>
+					<select name="category" required>
+						<option value="">Choose one</option>
+						<option value="coworkers">Coworkers</option>
+						<option value="clients">Clients</option>
+						<option value="both">Both</option>
+					</select>
+					<button type="submit">Send</button>
+					<a id="close-suggestion">Close</a>
+				</form>
+			</div>
+		</div>
+		
+		
+		<!--<div class="bottom-right animation-rtl-scale circle-wrapper">
+			<div class="circle transition-bg animation-bg"></div>
+		</div>-->
+		<div class="triangle"></div>
+	</div>
+	<script src="scripts/main.js"></script>
+</body>
+</html>

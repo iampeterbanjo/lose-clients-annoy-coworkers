@@ -1,0 +1,45 @@
+@font-face {
+	font-family: 'Permanent Marker';
+	src: url('../fonts/PermanentMarker.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Merriweather Regular';
+	src: url('../fonts/Merriweather-Regular.ttf') format('truetype');
+}
+
+.merriweather-regular {
+	font-family: 'Merriweather Regular', Arial, Helvetica, sans-serif;
+}
+
+.btn-more {
+	font-size: 2em;
+	text-transform: uppercase;
+}
+
+.btn-suggestion {
+	font-size: 1.5em;
+}
+
+.content,
+.title, .sub-title {
+	color: white;
+	min-width: 100%;
+}
+
+.title, .sub-title {
+	transition: all 0.5s ease-in;
+}
+
+.permanent-marker {
+	font-family: 'Permanent Marker', cursive;
+}
+
+.title {
+	font-size: 5em;
+}
+
+.sub-title {
+	font-size: 2em;
+	min-height: 2em;
+}

@@ -1,0 +1,179 @@
+/* ANIMATIONS */
+.spinner {
+	background-color: #333;
+
+	margin: 100px auto;
+	-webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+	animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@keyframes sk-rotateplane {
+	0% { 
+		transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+	} 50% { 
+		transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+	} 100% { 
+		transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+	}
+}
+
+.rotatepole-1 {
+	animation: anim-rotatepole-1 1s infinite ease-in-out;
+}
+
+@keyframes anim-rotatepole-1 {
+	0% {
+		transform: rotateX(180deg);
+	}
+}
+
+.rotatepole-2 {
+	animation: anim-rotatepole-2 1.2s infinite ease-in-out;
+}
+
+@keyframes anim-rotatepole-2 {
+	0% {
+		transform: rotateX(180deg);
+	}
+}
+
+.rotatepole-3 {
+	animation: anim-rotatepole-2 1.5s infinite ease-in-out;
+}
+
+@keyframes anim-rotatepole-2 {
+	0% {
+		transform: rotateX(180deg);
+	}
+}
+
+.animation-bg {
+	animation: animation-bg 10s infinite ease-in-out;
+}
+
+.animation-rtl {
+	animation: animation-rtl 10s infinite ease-in-out;
+}
+
+.animation-rtl-scale {
+	animation: animation-rtl-scale 10s infinite ease-in-out;
+}
+
+@keyframes animation-bg {
+	0% { background-color: #A89778; box-shadow: 0 5px 15px #A89778; }
+	10% { background-color: #AA1420; }
+	20% { background-color: #F8F21D; }
+	30% { background-color: #F70417; }
+	40% { background-color: #1788C4; }
+	50% { background-color: #FF540D; }
+	60% { background-color: #FF0DFF; }
+	70% { background-color: #0B74AA; }
+	80% { background-color: #B2FFDB; }
+	90% { background-color: #6c6c6c; }
+	100% { background-color: #A89778; }
+}
+
+@keyframes animation-rtl {
+	0% {
+		transform: translateX(0%);
+	}
+	50% {
+		transform: translateX(-80%);
+	}
+}
+
+@keyframes animation-scale {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(.5);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes animation-rtl-scale {
+	0% {
+		transform: translateX(0%) scale(1);
+	}
+	50% {
+		transform: translateX(-150%) scale(.5);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+.circle:before {
+	animation: animation-top-down 10s infinite ease-out;
+}
+
+@keyframes animation-top-down {
+	50% {
+		transform: translateY(-75%);
+	}
+}
+
+/* TRANSITIONS */
+.transition-bg {
+	transition: background 0.2s ease-in;
+}
+
+.loading-visible {
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+
+.loading .loading-visible {
+	opacity: 1;
+	transition: opacity 0.1s;
+}
+
+.loading-hidden {
+	opacity: 1;
+	transition: opacity 0.2s;
+}
+
+.loading .loading-hidden {
+	opacity: 0;
+}
+
+.loaded .animation-fold-up {
+	animation: animation-fold-up 1s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+.loading .animation-fold-down { 
+	transition: all 1s;
+	animation: animation-fold-down 1s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes animation-fold-down {
+	from { transform: translate3d(0,-100%,0); }
+	to { transform: translate3d(0,0,0); }
+}
+
+@keyframes animation-fold-up {
+	to { transform: translate3d(0,-100%,0); }
+}
+
+.suggestion .pull-up {
+	transition: all 1s;
+	animation: animation-pull-up 1s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes animation-pull-up {
+	from { transform: translate3d(0, 100%, 0); }
+	to { transform: translate3d(0, 0, 0);}
+}
+
+.close-suggestion .pull-down {
+	animation: animation-pull-down 1s cubic-bezier(0.7,0,0.3,1) forwards;
+}
+
+@keyframes animation-pull-down {
+	from { transform: translate3d(0, 0, 0);}
+	to { transform: translate3d(0, 100%, 0); }
+}
+

@@ -1,0 +1,229 @@
+/* LAYOUT */
+body {
+	overflow: hidden;
+}
+
+.no-margin-padding {
+	margin: 0;
+	padding: 0;
+}
+
+.stretch {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+}
+
+.image-cover {
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.full-height-width {
+	height: 100%;
+	width: 100%;
+}
+
+.flex-centre {
+	display: flex;
+	align-items: center;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+#container {
+	overflow: hidden;
+}
+
+/*POSITIONING*/
+.bottom-right,
+.left,
+.absolute {
+	position: absolute;
+}
+
+.bottom-right {
+	bottom: 0;
+	right: 0;
+}
+
+.left {
+	left: 0;
+}
+
+/* LAYERING */
+
+.layer--1 {
+	z-index: -1;
+}
+
+.layer-1 {
+	z-index: 1;
+}
+
+.layer-2 {
+	z-index: 2;
+}
+
+.layer-3 {
+	z-index: 3;
+}
+
+.layer-4 {
+	z-index: 4;
+}
+
+/* DG LOGO */
+
+.block {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 auto;
+	width: 40px;
+	height: 40px;
+}
+
+.pole > span {
+	width: 100%;
+}
+
+.pole {
+	border-radius: 0.5em;
+	display: flex;
+	height: 100%;
+	width: 18%;
+}
+
+.pole-three-quarter {
+	align-self: center;
+	height: 75%;
+}
+
+.pole-half {
+	height: 50%;
+}
+
+.pole-half:first-child {
+	align-self: flex-start;
+	height: 40%;
+	margin-bottom: 60%;
+}
+
+.pole-half:last-child {
+	align-self: flex-end;
+}
+
+body {
+	background-color: #161823;
+}
+
+.solid {
+	background-color: black;
+}
+
+.content * + * {
+	margin-bottom: 3em;
+}
+
+#main {
+	max-width: 75%;
+	text-align: center;
+	margin: 1em auto;
+}
+
+#form-wrapper {
+	background: mintcream;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	transform: translate3d(0, 100%, 0);
+	min-height: 40em;
+	height: 100%;
+	width: 100%;
+}
+
+.suggestion #form-wrapper {
+	transform: translate3d(0, 0, 0);
+}
+
+/*SHAPES*/
+.circle:after,
+.circle:before,
+.blend-bg {
+	background-blend-mode: multiply;
+	opacity: 0.5;
+}
+
+.circle:after,
+.circle:before {
+	content: '';
+	display: block;
+	position: absolute;
+}
+
+.circle {
+	border-radius: 100em;
+	background: red;
+	box-shadow: red 0 0 10em 10em;
+	width: 100em;
+	height: 100em;
+	position: absolute;
+	right: 0;
+}
+
+/*.circle:before {
+	border-radius: 400em;
+	background-color: #1F64BF;
+	box-shadow: #1F64BF 0 0 10em 10em;
+	width: 400em;
+	height: 400em;
+	right: 0;
+}*/
+
+/*.circle:after {
+	border-radius: 200em;
+	background-color: #F2CC0F;
+	box-shadow: #F2CC0F 0 0 20em 20em;
+	width: 200em;
+	height: 200em;
+	bottom: 0;
+}*/
+
+/*INTERACTION*/
+
+#screen {
+	background-color: #ccc;
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-height: 480px;
+	height: 100%;
+	width: 100%; 
+}
+
+.btn {
+	border: none;
+	display: inline-block;
+	padding: 0.5em 1em;
+}
+
+.btn-more {
+	background-color: #0B74AA;
+	min-width: 3em;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 1.5em;
+	text-shadow: black 1px 1px 2px;
+}
+
+.btn:hover {
+	cursor: pointer;
+}
+
+.btn:active {
+	transform: translateY(5%);
+}

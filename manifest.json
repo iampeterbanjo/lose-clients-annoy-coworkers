@@ -1,0 +1,23 @@
+{
+	"name": "How to lose clients and annoy coworkers",
+	"description": "Useful tips for more unproductive living",
+	"version": "0.2",
+	"chrome_url_overrides": {
+		"newtab": "index.html"
+	},
+	"options_ui": {
+		"page": "options.html",
+		"chrome_style": true
+	},
+	"icons": {
+		"16": "images/all-skin-types-16x16.png",
+		"48": "images/all-skin-types-48x48.png",
+		"128": "images/all-skin-types-128x128.png"
+	},
+	"manifest_version": 2,
+	"permissions": [
+		"storage",
+		"tabs",
+		"https://sheetsu.com/apis/2e55358e/*"
+	]
+}
