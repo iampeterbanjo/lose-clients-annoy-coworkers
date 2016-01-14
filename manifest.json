@@ -18,6 +18,7 @@
 	"permissions": [
 		"storage",
 		"tabs",
-		"https://sheetsu.com/apis/2e55358e/*"
+		"https://sheetsu.com/apis/2e55358e/*",
+		"https://twitter.com"
 	]
 }
