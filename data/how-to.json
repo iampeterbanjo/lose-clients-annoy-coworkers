@@ -88,7 +88,15 @@
 			"category": "both"
 		},
 		{
-			"description": "Go on vacation but tell no one",
+			"description": "Move the printer to a random location",
+			"category": "coworkers"
+		},
+		{
+			"description": "Route conference calls through the office intercom",
+			"category": "both"
+		},
+		{
+			"description": "Create a jargon scoreboard - double points for TLAs",
 			"category": "both"
 		}
 	]

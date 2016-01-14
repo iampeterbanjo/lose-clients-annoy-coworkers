@@ -62,7 +62,7 @@ function go() {
 		
 		localStorage['last'] = description;
 				
-		offense.innerHTML = description;
+		offense.innerHTML = description || '...';
 	});
 }
 
