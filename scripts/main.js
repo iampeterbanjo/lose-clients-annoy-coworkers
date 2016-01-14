@@ -51,14 +51,14 @@ function changeState(newState) {
 function go() {
 	changeState('LOADING');
 	
-	get('https://sheetsu.com/apis/2e55358e/',
+	get('/data/how-to.json',
 	function(text){
 		changeState('DONE');
 		
 		var data = JSON.parse(text),
 				offense = document.getElementById('offense'),
-				random = data.result[getRandomInt(0, data.result.length -1)],
-				description = random.description != '' ? random.description : '';
+				random = data[getRandomInt(0, data.length -1)],
+				description = random.description !== '' ? random.description : '';
 		
 		localStorage['last'] = description;
 				
