@@ -51,7 +51,7 @@ function changeState(newState) {
 function go() {
 	changeState('LOADING');
 	
-	get('/data/how-to.json',
+	get('../data/how-to.json',
 	function(text){
 		changeState('DONE');
 		
