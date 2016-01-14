@@ -12,23 +12,24 @@
 	font-family: 'Merriweather Regular', Arial, Helvetica, sans-serif;
 }
 
-.btn-more {
+.btn-text-big {
 	font-size: 2em;
 	text-transform: uppercase;
 }
 
-.btn-suggestion {
+.btn-text-small {
 	font-size: 1.5em;
 }
 
-.content,
+button,
+#main .content,
 .title, .sub-title {
 	color: white;
-	min-width: 100%;
 }
 
 .title, .sub-title {
 	transition: all 0.5s ease-in;
+	min-width: 100%;
 }
 
 .permanent-marker {

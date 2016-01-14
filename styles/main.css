@@ -29,6 +29,7 @@ body {
 .flex-centre {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 }
 
 .flex-column {
@@ -129,7 +130,7 @@ body {
 	margin-bottom: 3em;
 }
 
-#main {
+#wrapper {
 	max-width: 75%;
 	text-align: center;
 	margin: 1em auto;
@@ -205,6 +206,7 @@ body {
 	width: 100%; 
 }
 
+button,
 .btn {
 	border: none;
 	display: inline-block;
@@ -216,7 +218,6 @@ body {
 	min-width: 3em;
 	margin-left: auto;
 	margin-right: auto;
-	border-radius: 1.5em;
 	text-shadow: black 1px 1px 2px;
 }
 
@@ -226,4 +227,46 @@ body {
 
 .btn:active {
 	transform: translateY(5%);
+}
+
+button, .btn-more {
+	border-radius: 1.5em;	
+}
+
+/*FORM*/
+
+.form-item .btn,
+.form-item button,
+.form-item input,
+.form-item label,
+.form-item select {
+	/*align-self: flex-start;*/
+}
+
+.form-item + .form-item {
+	margin-bottom: 1.5em;
+}
+
+.form-item {
+	display: flex;
+}
+
+
+label, button {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+label {
+	min-width: 7em;
+	text-align: left;
+}
+
+input {
+	border: 1px #ccc solid;
+	padding: 0.5em 1em;
+}
+
+.form-item button {
+	margin: 0;
 }

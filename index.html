@@ -7,12 +7,12 @@
 	<link rel="stylesheet" href="styles/animations.css">
 	<link rel="stylesheet" href="styles/main.css">
 </head>
-<body class="stretch no-margin-padding loading">
+<body class="stretch no-margin-padding loading merriweather-regular">
 	<div id="container" class="full-height-width flex-centre">
 		<!--<div class="circle absolute left blend-bg animation-rtl"></div>-->
 			
-		<div id="main" class="image-cover stretch layer-2 flex-centre">
-			<div id="screen" class="animation-fold-up animation-fold-down flex-centre layer-2">
+		<div id="wrapper" class="image-cover stretch layer-2 flex-centre">
+			<section id="screen" class="animation-fold-up animation-fold-down flex-centre layer-2">
 				<div class="layer-1 block">
 					<span class="pole solid rotatepole-1"></span>
 					<span class="pole">
@@ -24,29 +24,48 @@
 						<span class="pole pole-half solid rotatepole-2"></span>
 					</span>
 				</div>
-			</div>
+			</section>
 			
-			<div class="content layer-1">
-				<p id="offense" class="title loading-hidden permanent-marker"></p>
-				<h1 class="sub-title merriweather-regular">How to lose clients and annoy coworkers</h1>
+			<section id="main" class="layer-1">
+				<div class="content">
+					<p id="offense" class="title loading-hidden permanent-marker"></p>
+					<h1 class="sub-title merriweather-regular">How to lose clients and annoy coworkers</h1>
+					
+					<a id="refresh" class="layer-3 btn btn-more permanent-marker btn-text-big">More</a>
+					<a id="make-suggestion" class="btn btn-suggestion btn-text-small">Make a suggestion</a>
+				</div>
+			</section>
+			
+			<section id="form-wrapper" class="pull-up pull-down layer-4 flex-centre">
+				<div class="content">
+					<h1>Do you have a suggestion?</h1>
 				
-				<a id="refresh" class="layer-3 btn btn-more permanent-marker">More</a>
-				<a id="make-suggestion" class="btn btn-suggestion">Make a suggestion</a>
-			</div>
-			
-			<div id="form-wrapper" class="pull-up pull-down layer-4">
-				<form enctype="application/json" action="https://sheetsu.com/apis/2e55358e" method="post">
-					<input name="description" type="text" value="" required>
-					<select name="category" required>
-						<option value="">Choose one</option>
-						<option value="coworkers">Coworkers</option>
-						<option value="clients">Clients</option>
-						<option value="both">Both</option>
-					</select>
-					<button type="submit">Send</button>
-					<a id="close-suggestion">Close</a>
-				</form>
-			</div>
+					<p>
+						<a href="">Submit a pull request</a> or submit the form below
+					</p>
+					
+					<form enctype="application/json" action="https://sheetsu.com/apis/2e55358e" method="post">
+						<div class="form-item">
+							<label for="your-description">Description</label>
+							<input id="your-description" name="description" type="text" value="" required>
+						</div>
+						<div class="form-item">
+							<label for="your-category">Category</label>
+							<select id="your-category" name="category" required>
+								<option value="">Choose one</option>
+								<option value="coworkers">Coworkers</option>
+								<option value="clients">Clients</option>
+								<option value="both">Both</option>
+							</select>
+						</div>
+						<div class="form-item flex-centre">
+							<a id="close-suggestion" class="btn btn-cancel btn-text-small">Cancel</a>
+							<button type="submit" class="permanent-marker btn-text-big">Send</button>
+						</div>
+					</form>
+				</div>
+				
+			</section>
 		</div>
 		
 		
