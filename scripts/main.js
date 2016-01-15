@@ -139,5 +139,4 @@ document.addEventListener('DOMContentLoaded', function() {
 	document.getElementById('close-suggestion').addEventListener('click', function(){
 		app.changeState('CLOSE-SUGGESTION');
 	});
-	// setInterval(go, 2000);
 });
