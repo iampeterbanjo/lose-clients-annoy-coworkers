@@ -25,6 +25,23 @@ var App = App || function(args) {
 
 			request.send();
 		}
+		, post: function(url, data, success, error) {
+			var request = new XMLHttpRequest();
+			request.open('POST', url, true);
+			request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+			
+			request.onload = function() {
+				if(request.status >= 200 && request.status < 400) {
+					success(request.responseText);
+				}
+			}
+
+			request.onerror = function() {
+				error(request.status, request.responseText);
+			}
+			
+			request.send(data);
+		}
 		// return random integer between range
 		, getRandomInt: function(min, max) {
 			return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -138,5 +155,18 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	document.getElementById('close-suggestion').addEventListener('click', function(){
 		app.changeState('CLOSE-SUGGESTION');
+	});
+	
+	document.getElementById('form-suggestion').addEventListener('submit', function(e) {
+		e.preventDefault();
+		
+		var form = e.target
+				, description = document.querySelector('[name="description"]').value
+				, category = document.querySelector('[name="category"]').value
+				, data = { description: description, category: category };
+		
+		app.post(form.action, data, function() {
+			app.changeState('CLOSE-SUGGESTION');
+		});
 	});
 });
