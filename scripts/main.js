@@ -75,6 +75,7 @@ var App = App || function() {
 		, getRandomInt: getRandomInt
 		,  changeState: changeState
 		, reloadData: reloadData
+		, getNext: function() {}
 	}
 }
 

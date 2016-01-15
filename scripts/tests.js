@@ -7,3 +7,8 @@ function assert(test, description) {
 
 assert(true, 'sanity check');
 
+function testAppHasGetNextFunction() {
+	var app = new App();
+	assert(typeof app.getNext == 'function', 'app has getNext function');
+}
+testAppHasGetNextFunction();
