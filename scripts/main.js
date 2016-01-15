@@ -70,7 +70,7 @@ var App = App || function() {
 			});
 		}
 		, getNext: function() {
-			return this.previousOffense + 1;
+			return this.previousOffense += 1;
 		}
 	}
 }

@@ -16,6 +16,14 @@ var Test = Test || function() {
 			
 			this.assert(app.getNext() === 0, 'app.getNext() starts at zero');
 		}
+		, callingGetNextTwiceReturnsOne: function() {
+			var app = new App(), count;
+			
+			app.getNext();
+			count = app.getNext();
+			
+			this.assert(count === 1, 'calling app.getNext() twice returns 1');
+		}
 	}
 }
 
@@ -28,4 +36,5 @@ if ((window.outerHeight - window.innerHeight) > 100) {
 	
 	test.appHasGetNextFunction();
 	test.appGetNextFunctionStartsAtZero();
+	test.callingGetNextTwiceReturnsOne();
 }
