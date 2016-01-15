@@ -48,7 +48,7 @@ function changeState(newState) {
 	}
 }
 
-function go() {
+function reloadData() {
 	changeState('LOADING');
 	
 	get('data/how-to.json',
@@ -62,16 +62,16 @@ function go() {
 		
 		localStorage['last'] = description;
 				
-		offense.innerHTML = description || '...';
+		offense.innerHTML = description;
 	});
 }
 
-document.getElementById('offense').innerHTML = localStorage['last'];
-
-go();
-
 document.addEventListener('DOMContentLoaded', function() {
-	document.getElementById('refresh').addEventListener('click', go);
+	document.getElementById('offense').innerHTML = localStorage['last'] || 'Loading..';
+	
+	reloadData();
+	
+	document.getElementById('refresh').addEventListener('click', reloadData);
 	changeState('DONE');
 	
 	document.getElementById('make-suggestion').addEventListener('click', function(){
