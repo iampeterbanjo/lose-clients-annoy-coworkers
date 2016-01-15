@@ -1,6 +1,7 @@
 console.log('ready');
 
-var App = App || function() {
+var App = App || function(args) {
+	var options = args || {}, next = -1, limit = options.limit || -1;
 	
 	return {
 		previousOffense: -1
@@ -69,8 +70,14 @@ var App = App || function() {
 				offense.innerHTML = description;
 			});
 		}
+		// assumes we are working with a zero based
+		// array index
 		, getNext: function() {
-			return this.previousOffense += 1;
+			if(limit !== -1) {
+				next = next + 1 > limit - 1 ? 0 : next + 1;
+			}
+			
+			return next;
 		}
 	}
 }
