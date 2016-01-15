@@ -1,4 +1,5 @@
 // tests
+
 function assert(test, description) {
 	var status = !!test ? 'PASSED' : 'FAILED';
 	
@@ -11,4 +12,9 @@ function testAppHasGetNextFunction() {
 	var app = new App();
 	assert(typeof app.getNext == 'function', 'app has getNext function');
 }
-testAppHasGetNextFunction();
+
+if ((window.outerHeight - window.innerHeight) > 100) {
+	console.log('Docked inspector open - running tests');
+	
+	testAppHasGetNextFunction();
+}
