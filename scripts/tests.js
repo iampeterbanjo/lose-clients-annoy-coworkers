@@ -51,9 +51,12 @@ if ((window.outerHeight - window.innerHeight) > 100) {
 	
 	test.assert(true, 'sanity check');
 	
-	test.appHasGetNextFunction();
-	test.callingGetNextWithoutALimitReturnsMinusOne();
-	test.appGetNextFunctionStartsAtZero();
-	test.callingGetNextTwiceReturnsOne();
-	test.reachingTheAppLimitGetNextReturnsZero();
+	// run all tests
+	for(var t in test) {
+		if(typeof test[t] == 'function'
+		&& test.hasOwnProperty(t)
+		&& t != 'assert') {
+			test[t]();
+		}
+	}
 }
