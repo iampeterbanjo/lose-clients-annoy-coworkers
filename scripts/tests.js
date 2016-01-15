@@ -11,6 +11,11 @@ var Test = Test || function() {
 			
 			this.assert(typeof app.getNext == 'function', 'app has getNext function');
 		}
+		, appGetNextFunctionStartsAtZero: function() {
+			var app = new App();
+			
+			this.assert(app.getNext() === 0, 'app.getNext() starts at zero');
+		}
 	}
 }
 
@@ -22,4 +27,5 @@ if ((window.outerHeight - window.innerHeight) > 100) {
 	test.assert(true, 'sanity check');
 	
 	test.appHasGetNextFunction();
+	test.appGetNextFunctionStartsAtZero();
 }

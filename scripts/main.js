@@ -1,11 +1,11 @@
 console.log('ready');
 
 var App = App || function() {
-	this.previousOffense = -1;
 	
 	return {
+		previousOffense: -1
 		// get a url and call success or error functions
-		get: function(url, success, error) {
+		, get: function(url, success, error) {
 			var request = new XMLHttpRequest();
 			request.open('GET', url, true);
 
@@ -69,7 +69,9 @@ var App = App || function() {
 				offense.innerHTML = description;
 			});
 		}
-		, getNext: function() {}
+		, getNext: function() {
+			return this.previousOffense + 1;
+		}
 	}
 }
 
