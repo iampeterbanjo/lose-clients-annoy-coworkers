@@ -146,8 +146,10 @@ var App = App || function(args) {
 document.addEventListener('DOMContentLoaded', function() {
 	var app = new App();
 	
-	app.showLastDescripition();
-	app.reloadData();
+	window.setTimeout(function(){
+		app.showLastDescripition();
+		app.reloadData();
+	}, 2000);
 	
 	document.getElementById('refresh').addEventListener('click', function() {
 		app.showNextDescription();
