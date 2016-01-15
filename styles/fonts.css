@@ -38,6 +38,7 @@ button,
 
 .title {
 	font-size: 5em;
+	min-height: 3em;
 }
 
 .sub-title {
