@@ -121,6 +121,8 @@
 	transition: background 0.2s ease-in;
 }
 
+.posting-visible,
+.loading .loading-hidden,
 .loading-visible {
 	opacity: 0;
 	transition: opacity 0.2s;
@@ -131,13 +133,10 @@
 	transition: opacity 0.1s;
 }
 
+.posting .posting-visible,
 .loading-hidden {
 	opacity: 1;
 	transition: opacity 0.2s;
-}
-
-.loading .loading-hidden {
-	opacity: 0;
 }
 
 .loaded .animation-fold-up {

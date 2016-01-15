@@ -67,8 +67,12 @@ var App = App || function(args) {
 					body.classList.add('suggestion');
 					body.classList.remove('close-suggestion');
 					break;
+				case 'POSTING':
+					body.classList.add('posting');
+					break;
 				case 'CLOSE-SUGGESTION':
 					body.classList.remove('suggestion');
+					body.classList.remove('posting');
 					body.classList.add('close-suggestion');
 					break;
 			}
@@ -165,8 +169,14 @@ document.addEventListener('DOMContentLoaded', function() {
 				, category = document.querySelector('[name="category"]').value
 				, data = { description: description, category: category };
 		
+		app.changeState('POSTING');
+		
 		app.post(form.action, data, function() {
-			app.changeState('CLOSE-SUGGESTION');
+			window.setTimeout(function() {
+				form.reset();
+
+				app.changeState('CLOSE-SUGGESTION');
+			}, 500);
 		});
 	});
 });
