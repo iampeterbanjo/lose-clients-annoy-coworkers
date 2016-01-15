@@ -41,6 +41,21 @@ var Test = Test || function() {
 			// ..when app.getNext is called the fourth time..
 			this.assert(app.getNext() === 0, 'reaching the app limit, get next returns zero');
 		}
+		, hasGetLimit: function() {
+			var app = new App();
+			this.assert(typeof app.getLimit == 'function', 'app has getLimit function');
+		}
+		, hasSetLimit: function() {
+			var app = new App();
+			this.assert(typeof app.setLimit == 'function', 'app has setLimit function');
+		}
+		, canSetAndGetLimit: function() {
+			var app = new App(), max = 2;
+			
+			this.assert(app.getNext() === -1, 'limit is unset');
+			app.setLimit(max);
+			this.assert(app.getLimit() === max, 'limit is correct');
+		}
 	}
 }
 

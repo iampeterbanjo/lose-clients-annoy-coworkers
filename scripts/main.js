@@ -79,6 +79,12 @@ var App = App || function(args) {
 			
 			return next;
 		}
+		, getLimit: function() {
+			return limit;
+		}
+		, setLimit: function(newLimit) {
+			limit = newLimit;
+		}
 	}
 }
 
