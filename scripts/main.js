@@ -29,6 +29,9 @@ var App = App || function(args) {
 		, getRandomInt: function(min, max) {
 			return Math.floor(Math.random() * (max - min + 1)) + min;
 		}
+		, display: function(text) {
+			document.getElementById('offense').innerHTML = text;
+		}
 		// set state of the app
 		,  changeState: function(newState) {
 			var body = document.querySelector('body'),
@@ -61,11 +64,9 @@ var App = App || function(args) {
 			localStorage['data'] = JSON.stringify(data);
 		}
 		, showNextDescription: function() {
-			this.data = this.getData();
-			var offense = document.getElementById('offense')
-					, count = this.getNext();
+			var count = this.getNext();
 
-			offense.innerHTML = this.data[count].description;
+			this.display(this.getData()[count].description);
 			
 			localStorage['count'] = count;
 		}
@@ -77,7 +78,7 @@ var App = App || function(args) {
 				data = JSON.parse(data);
 				
 				if(data[count] && data[count].description) {
-					document.getElementById('offense').innerHTML = data[count].description;
+					this.display(data[count].description);
 				}
 			}
 		}
