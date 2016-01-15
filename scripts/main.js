@@ -1,12 +1,15 @@
 console.log('ready');
 
 var App = App || function(args) {
-	var options = args || {}, next = -1, limit = options.limit || -1;
+	var _ = this;
+	_.options = args || {};
+	_.next = -1;
+	_.limit = _.options.limit || -1;
+	_.data;
 	
 	return {
-		previousOffense: -1
 		// get a url and call success or error functions
-		, get: function(url, success, error) {
+		get: function(url, success, error) {
 			var request = new XMLHttpRequest();
 			request.open('GET', url, true);
 
@@ -50,6 +53,18 @@ var App = App || function(args) {
 					break;
 			}
 		}
+		, getData: function() {
+			return JSON.parse(localStorage['data']);
+		}
+		, saveData: function(data) {
+			localStorage['data'] = JSON.stringify(data);
+		}
+		, showNextDescription: function() {
+			this.data = this.getData();
+			var offense = document.getElementById('offense');
+
+			offense.innerHTML = this.data[this.getNext()].description;
+		}
 		// make new request for data and show it
 		, reloadData: function() {
 			var self = this;
@@ -57,33 +72,28 @@ var App = App || function(args) {
 			self.changeState('LOADING');
 			
 			self.get('data/how-to.json',
-			function(text){
+			function(json){
+				var data = JSON.parse(json);
+				
 				self.changeState('DONE');
-				
-				var data = JSON.parse(text),
-						offense = document.getElementById('offense'),
-						random = data[self.getRandomInt(0, data.length -1)],
-						description = random.description !== '' ? random.description : '';
-				
-				localStorage['last'] = description;
-						
-				offense.innerHTML = description;
+				self.setLimit(data.length);
+				self.saveData(data);
 			});
 		}
 		// assumes we are working with a zero based
 		// array index
 		, getNext: function() {
-			if(limit !== -1) {
-				next = next + 1 > limit - 1 ? 0 : next + 1;
+			if(_.limit !== -1) {
+				_.next = _.next + 1 > _.limit - 1 ? 0 : _.next + 1;
 			}
 			
-			return next;
+			return _.next;
 		}
 		, getLimit: function() {
-			return limit;
+			return _.limit; 
 		}
 		, setLimit: function(newLimit) {
-			limit = newLimit;
+			_.limit = newLimit;
 		}
 	}
 }
@@ -95,8 +105,9 @@ document.addEventListener('DOMContentLoaded', function() {
 	
 	app.reloadData();
 	
-	document.getElementById('refresh').addEventListener('click', app.reloadData);
-	app.changeState('DONE');
+	document.getElementById('refresh').addEventListener('click', function() {
+		app.showNextDescription();
+	});
 	
 	document.getElementById('make-suggestion').addEventListener('click', function(){
 		app.changeState('SUGGESTION');
