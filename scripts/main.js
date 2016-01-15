@@ -57,13 +57,34 @@ var App = App || function(args) {
 			return JSON.parse(localStorage['data']);
 		}
 		, saveData: function(data) {
+			localStorage['limit'] = this.getLimit();
 			localStorage['data'] = JSON.stringify(data);
 		}
 		, showNextDescription: function() {
 			this.data = this.getData();
-			var offense = document.getElementById('offense');
+			var offense = document.getElementById('offense')
+					, count = this.getNext();
 
-			offense.innerHTML = this.data[this.getNext()].description;
+			offense.innerHTML = this.data[count].description;
+			
+			localStorage['count'] = count;
+		}
+		, showLastDescripition: function() {
+			var data = localStorage['data']
+					, count = localStorage['count'];
+					
+			if(data && count) {
+				data = JSON.parse(data);
+				
+				if(data[count] && data[count].description) {
+					document.getElementById('offense').innerHTML = data[count].description;
+				}
+			}
+		}
+		, checkFirstTime: function() {
+			if(!localStorage['count']) {
+				this.showNextDescription();
+			}
 		}
 		// make new request for data and show it
 		, reloadData: function() {
@@ -78,6 +99,8 @@ var App = App || function(args) {
 				self.changeState('DONE');
 				self.setLimit(data.length);
 				self.saveData(data);
+				
+				self.checkFirstTime();
 			});
 		}
 		// assumes we are working with a zero based
@@ -101,8 +124,7 @@ var App = App || function(args) {
 document.addEventListener('DOMContentLoaded', function() {
 	var app = new App();
 	
-	document.getElementById('offense').innerHTML = localStorage['last'] || 'Loading..';
-	
+	app.showLastDescripition();
 	app.reloadData();
 	
 	document.getElementById('refresh').addEventListener('click', function() {
