@@ -169,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		var form = e.target
 				, description = document.querySelector('[name="description"]').value
 				, category = document.querySelector('[name="category"]').value
-				, data = { description: description, category: category };
+				, data = 'description=' + description + '&category=' + category;
 		
 		app.changeState('POSTING');
 		
